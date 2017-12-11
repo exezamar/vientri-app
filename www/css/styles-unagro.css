@@ -1,0 +1,380 @@
+  a:link {
+    text-decoration: none !important;
+    color: white;
+}
+  a:visited {
+    text-decoration: none !important;
+    color: white;
+}
+  body{/*overflow: hidden;*/ color:white;}
+
+#contenedorLogin{
+  display: flex;
+  flex-direction:column;
+  height: 100%;
+  align-items:center;
+  width: 100%;
+  overflow-y: scroll;
+  background: url("../img/portada.jpg") 40% no-repeat;
+  background-size: cover;
+  position: absolute;
+  bottom:0px;
+}
+#contenedorMenuSolicitante{
+   display: flex;
+  flex-direction:column;
+  height: 100%;
+  align-items:center;
+  width: 100%;
+  overflow-y: scroll;
+  background: url("../img/portada.jpg") no-repeat;
+  background-size: cover;
+  position: absolute;
+  bottom:0px; 
+}
+#contenedorNuevoPedidoSolicitante{
+   display: flex;
+  flex-direction:column;
+  height: 100%;
+  align-items:center;
+  width: 100%;
+  overflow-y: scroll;
+  /*background: #5089E4;*/
+  position: absolute;
+  bottom:0px; 
+}
+.conthead{
+  width: 100%;
+  display: flex;
+  justify-content:center;
+  flex-direction:column;
+  align-items:center;
+  position: relative;
+  min-height:13%;
+}
+#contenedorCantidades{
+     display: flex;
+  flex-direction:column;
+  height: 100%;
+  align-items:center;
+  width: 100%;
+  overflow-y: scroll;
+  background: #5089E4;
+
+  position: absolute;
+  bottom:0px; 
+}
+#contenedorDestinos{
+  display: flex;
+  flex-direction:column;
+  height: 100%;
+  align-items:center;
+  width: 100%;
+  overflow-y: scroll;
+  background: #5089E4;
+  background: white;
+  position: absolute;
+  bottom:0px; 
+}
+.bazul{
+  background: #5089E4 !important;
+}
+#contenedorFecha{
+     display: flex;
+  flex-direction:column;
+  height: 100%;
+  align-items:center;
+  width: 100%;
+  overflow-y: scroll;
+  background: #5089E4;
+
+  position: absolute;
+  bottom:0px; 
+}
+#contenedorConfirma{
+  display: flex;
+  flex-direction:column;
+  height: 100%;
+  align-items:center;
+  width: 100%;
+  overflow-y: scroll;
+  background: #5089E4;
+
+  position: absolute;
+  bottom:0px; 
+}
+#contenedorHistorialPedidoSolicitante{
+       display: flex;
+  flex-direction:column;
+  height: 100%;
+  align-items:center;
+  width: 100%;
+  overflow-y: scroll;
+  background: #5089E4;
+  position: absolute;
+  bottom:0px;
+}
+.oculto{display: none !important;}
+.nlogo{
+  width: 150px;
+}
+.cithead{
+  width: 100%;
+  background: #5089E4;
+  display: flex;
+  justify-content:center;
+}
+#contFlogin{
+  margin-top:75px;
+  display: flex;
+  flex-direction:column;
+  align-items:left;
+  position: relative;
+}
+#calogin{
+  display: flex;
+  flex-direction:column;
+  margin-top:30px;
+
+}
+.btnlogin{
+width: 200px;
+}
+.logoMini{
+  width: 75px;
+
+}
+#inpbsq{
+  background-color: #0D2c83;
+  border-style:none;
+  min-width: 300px;
+  color: white;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+#contTodosInsumos{
+  background-color: white !important;
+  height: 70%;
+  width: 100%;
+  color: gray;
+  margin-top:10px;
+  overflow-y:scroll;
+  padding-top:10px;
+
+}
+
+.iestado{ width: 30px;margin-top:3px;}
+
+.cinsumo{
+  display: flex;
+  justify-content:center;
+  padding:10px;
+    border-bottom:1px solid #dadada;
+    position: relative;
+
+}
+.iestadodestino{ width: 30px;margin-top:3px;}
+.cdestino{
+    display: flex;
+  justify-content:space-between;
+  padding:10px;
+    border-bottom:1px solid #dadada;
+    position: relative;
+}
+.nominsum{font-size: 1.1em; color: black}
+.stock{font-size: .8em;color: gray;}
+.coninfoinsumo{
+  flex-grow:2;
+  margin-right: 10px;
+  margin-left:10px;
+
+}
+.coninfodestino{
+  flex-grow:2;
+}
+.banda{
+position: absolute;
+right:0px;
+height: 100%;
+top:0px;
+width: 10px;
+background-color: red;
+}
+.VERDE{background-color: #62b22f !important;}
+.AMARILLO{background-color: #FFDE47 !important;}
+.AZUL{background-color: #5089e4 !important;}
+.ROJO{background-color: #FF3366 !important;}
+.BLANCA{background-color: white!important;}
+.sinStock{color:#FF3366 !important;}
+.conBotnes{
+  display: flex;
+  justify-content:space-between;
+  width: 100%;
+ background-color: white;
+ color: #0D2c83;
+ /*height: 7%;*/
+ position: absolute;
+ bottom:0px;
+
+}
+.btnAccion{
+  padding:10px;
+  font-size: 1.5em;
+}
+.connumpaso{
+  display: flex;
+  justify-content:space-around;
+  position: absolute;
+  bottom:50px;
+  width: 100%;
+  z-index: 999;
+}
+.paso{
+  width: 20%;
+  background-color: gray;
+  height: 5px;
+  border-right:1px solid white;
+  color: gray;
+    font-size: .1em;
+
+}
+.phecho{
+  background-color: #50D2C2 !important;
+  color: #50D2C2 !important;
+  font-size: .01em;
+}
+.btnborrar{width: 20px;}
+#contablacantidades{
+  height: 75%;
+  overflow-y:scroll;
+  width: 100%;
+  background-color: white;
+}
+#tablaCantidades{
+  width: 100%;
+
+}
+#bodyCantidades{
+
+  width: 100%;
+  margin-top:20px;
+ 
+
+}
+.conInsumoCantid{
+  background-color: white;
+  color: black;
+  width: 100%;
+  height: 50px;
+  padding-bottom:5px;
+  border-bottom:1px solid #dadada;
+
+}
+#sandbox-container{
+  width: 400px;
+  height: 400px;
+
+}
+.icseccion{width: 25px;margin-left:40px;}
+.icseccionH{width: 35px;margin-left:40px;}
+
+#conlugyfech{
+  display: flex;
+  justify-content:space-around;
+  width: 100%;
+  background:white;
+  border-bottom:2px solid #dadada;
+  padding-bottom:5px;
+}
+.clugfech{
+  display: flex;
+  justify-content:center;
+  max-width: 45%;
+}
+.tconfirm{color: black; font-size: .8em;}
+#coninsumconfirmados{
+  display: flex;
+  justify-content:left;
+  background: white;
+  height: 300px;
+  width: 100%;
+  padding-left:50px;
+  padding-top:10px;
+  overflow-y:scroll;
+}
+#fechaEntregaSolicitada{
+  text-align:center;
+}
+#contituinsumos{
+  display: flex;
+  justify-content:left;
+
+}
+.fgrow2{flex-grow:2;}
+.conNomInsumo{
+  display: flex;
+  justify-content:space-between;
+  padding-bottom:10px;
+  border-bottom:1px solid #dadada;
+}
+#contComentario{
+  display: flex;
+  justify-content:left;
+  background: white;
+  height: 120px;
+  width: 100%;
+  padding-left:50px;
+  padding-top:10px;
+}
+#contenedorHistorialSolicitante{
+  display: flex;
+  background: #5089e4;
+  flex-direction:column;
+  align-items:center;
+}
+#conhistsolicitudes{
+
+  width: 100%;
+  background: white;
+
+  margin-top:20px;
+  padding:10px;
+  height: 400px;
+  overflow-y:scroll;
+  border-bottom:1px solid #dadada;
+}
+.conSolicitud{
+  display: flex;
+  justify-content:left;
+  margin-left:20px;
+  border-bottom:1px solid #dadada;
+}
+
+.nomDestino{color: black}
+.fechaSoli{color: gray;font-size: .8em;}
+.estsolic{
+    width: 95px;
+    color: white;
+    background: #5089e4;
+    text-align: center;
+    height: 30px;
+    margin-top: 9px;
+
+}
+
+.nlogomini{
+  margin-right:50px;
+  width: 150px;
+}
+@media only screen and (max-height: 550px) {
+  
+  #logo{margin-top:1% !important;}
+  #contFlogin{
+    margin-top:0px;
+    display: flex;
+    flex-direction:column;
+    align-items:left;
+    position: relative;
+  }
+
+}

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <link href="css/sweetalert.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/daterangepicker.css" rel="stylesheet">
+    <link href="css/tabla.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/styles-unagro.css" />
+
+    <title>Vientri - Infovalue</title>
+</head>
+
+<body onload="onLoad();">
+
+  <div id='contenedorLogin' class='animated'>
+    <div id='logo' style='margin-top:20%;'>
+      <img src="img/logo.jpg" class='nlogo'>
+    </div>
+    <div id='contFlogin'>
+      <div style='margin-bottom:10px;'>
+        <input type='email' placeholder='Usuario' class='form-control' id='txtEmailLogin'name="email" value="">
+      </div>
+      <div >
+        <input type='password' placeholder='Contraseña' class='form-control' id="txtPasswordLogin">
+      </div>
+    </div>
+    <div id='calogin'>
+      <a href="#" id='btnIngresar'><div style='position:relative;'>
+        <img src="img/btnlogin.svg" class='btnlogin'>
+        <span style='position:absolute; top:7px; left: 75px;'>Login</span>
+      </div></a>
+      <div style='margin-top:20px;display:flex;justify-content:center;'>
+        <span>Olvide mi contraseña</span>
+      </div>
+    </div>
+  </div>
+
+  <div id='contenedorMenuSolicitante' class='animated oculto'>
+    <div class='logo' style='margin-top:20%;'>
+        <img src="img/logo.jpg" class='nlogo'>
+    </div>
+    <div id='cbotmenus' style='margin-top:60%;'>
+      <a href="#"  id='btnNuevoPedidoSolicitante'> 
+        <div style='position:relative;'>
+          <img src="img/btnnuevopedido.svg" class='btnlogin'>
+          <span style='position:absolute;top:20px;left:60px;'>Nuevo pedido</span>
+        </div>
+      </a>
+      <a href="#" id='btnHistorialPedidosSolicitante'>
+        <div style='position:relative;margin-top:10px'>
+          <img src="img/btnhistorial.svg" class='btnlogin'>
+          <span style='position:absolute;top:24px;left:60px;'>Mi historial</span>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div id='contenedorNuevoPedidoSolicitante' class='animated oculto'>
+    <div class='bazul conthead'>
+  <!--     <div class='logoMini bazul' style='margin-top:20px;'>
+        <img src="img/logo.jpg" class='nlogomini'>
+      </div> -->
+      <div id='contbusq' class='bazul'>
+        <div>
+          <input type='text' id='inpbsq' placeholder='Buscar insumo' class='form-control'>
+        </div>
+      </div>
+    </div>
+    <div id='contTodosInsumos'>
+    </div>
+    <div class='connumpaso'>
+      <div class='paso phecho'></div>
+      <div class='paso '></div>
+      <div class='paso '></div>
+      <div class='paso '></div>
+      <div class='paso '></div>
+    </div>
+    <div class='conBotnes'>
+      <div class='btnAccion' id='btnVolverAMenu'>
+        <span>ATRAS</span>
+      </div>
+      <div class='btnAccion' id='btnIrACantidades'>
+        <span >SIGUIENTE</span>
+      </div>
+    </div>
+  </div>
+  <div id='contenedorCantidades' class='animated oculto'>
+    <div class='bazul conthead'>
+      <!-- <div class='logoMini' style='margin-top:20px;'>
+        <img src="img/logo.jpg" class='nlogomini'> 
+      </div> -->
+      <div>
+        <span class='theader'> Seleccionar Cantidades</span>
+      </div>
+    </div>
+    <div style='margin-top:5px;'>
+      <img src="img/cantidadesinsumos.svg" style='width:20px;'>
+    </div>
+    <div id='contablacantidades'>
+      <table id ='tablaCantidades'>
+          <thead style='background-color:#5089E4;'>
+                <tr>
+                    <th style='width:180px !important;padding-left:10px'>Nombre</th>
+                    <th style='padding-right:10px; '>Cantidad</th>
+                    <th style=''>UM</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id='bodyCantidades'>
+                <tr class='conInsumoCantid' idInsumo='25'> 
+                  <td>Nombre del insumo largaso </td>
+                  <td>
+                    <input type='number' class='form-control' style='width:70px !important;' value='1'/>
+                  </td>
+                  <td>KG</td>
+                  <td>
+                    <div class='btnEliminarInsumo'>
+                      <img src="img/borrarinsumo.svg" class='btnborrar' idInsumo='25' >
+                    </div>
+                  </td>
+                </tr>
+                <tr class='conInsumoCantid' idInsumo='26'> 
+                  <td>Nombre del insumo largaso </td>
+                  <td>
+                    <input type='number' class='form-control' style='width:70px !important;' value='1'/>
+                  </td>
+                  <td>KG</td>
+                  <td>
+                    <div class='btnEliminarInsumo'>
+                      <img src="img/borrarinsumo.svg" class='btnborrar' idInsumo='26' >
+                    </div>
+                  </td>
+                </tr>
+                <tr class='conInsumoCantid' idInsumo='27'> 
+                  <td>Nombre del insumo largaso </td>
+                  <td>
+                    <input type='number' class='form-control' style='width:70px !important;' value='1'/>
+                  </td>
+                  <td>KG</td>
+                  <td>
+                    <div class='btnEliminarInsumo'>
+                      <img src="img/borrarinsumo.svg" class='btnborrar' idInsumo='27' >
+                    </div>
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class='connumpaso'>
+      <div class='paso phecho'></div>
+      <div class='paso phecho'></div>
+      <div class='paso '></div>
+      <div class='paso '></div>
+      <div class='paso '></div>
+    </div>
+   <div class='conBotnes'>
+      <div class='btnAccion' id='btnVolverAInsumos'>
+        <span>ATRAS</span>
+      </div>
+      <div class='btnAccion' id='btnIrADestinos'>
+        <span >SIGUIENTE</span>
+      </div>
+    </div>
+  </div>
+
+  <div id='contenedorDestinos' class='animated oculto'>
+    <div class='bazul conthead'>
+      <!-- <div class='logoMini' style='margin-top:20px;'>
+        <img src="img/logo.jpg" class='nlogomini'>
+      </div> -->
+      <div>
+        <span class='theader'> Seleccionar Destino</span>
+      </div>
+    </div> 
+    <div class='cithead'>
+      <div>
+        <img src="img/cantidadesinsumos.svg" style='width:20px;'>
+      </div>
+    </div> 
+    <div id='contablacantidades' class='animated'>
+      <table id ='tablaCantidades'>
+          <thead style='background-color:#5089E4;'>
+                <tr>
+                    <th style='padding-left:50px'>Denominacion</th>
+                    <th style='padding-right:10px; '>Ubicacion</th>
+                </tr>
+            </thead>
+      </table>
+      <div id='bodyDestinos'></div>
+      <div class='connumpaso'>
+        <div class='paso phecho'></div>
+        <div class='paso phecho'></div>
+        <div class='paso phecho'></div>
+        <div class='paso '></div>
+        <div class='paso '></div>
+      </div>
+     <div class='conBotnes'>
+        <div class='btnAccion' id='btnVolverACantidades'>
+          <span>ATRAS</span>
+        </div>
+        <div class='btnAccion' id='btnIrAFecha'>
+          <span >SIGUIENTE</span>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- seleccion de fecha -->
+<div id='contenedorFecha' class='animated oculto'>
+  <div class='bazul conthead'>
+    <!-- <div class='logoMini' style='margin-top:20px;'>
+      <img src="img/logo.jpg" class='nlogomini'>
+    </div> -->
+    <div>
+      <span class='theader'> Fecha de entrega</span>
+    </div>
+  </div>  
+
+  <div style='margin-top:40px;'>
+     <input id='fechaEntregaSolicitada' type='date' class='form-control' style='width:250px;'></input>
+  </div>
+  <div class='connumpaso'>
+    <div class='paso phecho'></div>
+    <div class='paso phecho'></div>
+    <div class='paso phecho'></div>
+    <div class='paso phecho'></div>
+    <div class='paso '></div>
+  </div>
+  <div class='conBotnes'>
+      <div class='btnAccion' id='btnVolverADestinos'>
+        <span>ATRAS</span>
+      </div>
+      <div class='btnAccion' id='btnIrAConfirma'>
+        <span >SIGUIENTE</span>
+      </div>
+  </div>
+</div>  
+
+<!-- confirmacion pedido -->
+<div id='contenedorConfirma' class='animated oculto'>
+  <div class='bazul conthead'>
+    <!-- <div class='logoMini' style='margin-top:20px;'>
+      <img src="img/logo.jpg" class='nlogomini'> 
+    </div> -->
+    <div><br>
+      <span class='theader'> Confirmar Pedido</span> <br>
+      <img src="img/tildeConfirma.svg" class='icseccion'> 
+    </div>
+  </div>
+  <div id='conlugyfech' style='margin-top:10px;'>
+    <div class='clugfech'>
+      <div style='margin-left:20px;'>
+        <img src="img/iubicacion.svg" style='width:20px;'>
+      </div>
+      <div style='margin-left:10px;'>
+        <div>
+          <span style='color:gray'>Lugar</span>
+        </div>
+        <div>
+          <b><span class='tconfirm' id='confirmaDestino'>Direccion o sucursal</span></b>
+        </div>
+      </div>
+    </div>
+    <div class='clugfech'>
+      <div style='margin-left:20px;'>
+        <img src="img/iubicacion.svg" style='width:20px;'>
+      </div>
+      <div style='margin-left:10px;'>
+        <div>
+          <span style='color:gray'>Fecha</span>
+        </div>
+        <div>
+          <b><span class='tconfirm' id='confirmaFecha' >04/11/2016</span></b>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id='coninsumconfirmados'>
+      <div id='contituinsumos'>
+        <div>
+          <img src="img/cantidadesinsumos.svg" style='width:20px;'>
+        </div>
+        <div class='fgrow2' style='margin-left:10px;'>
+          <span style='color:gray'>Nombre producto</span> <br>
+          <div style='color:black' id='conTodosInConf'>
+            <div class='conNomInsumo'>
+              <div>
+                <b><span>2,4 AMINA ASIMAX 80 X 10 KG</span></b>
+              </div>
+              <div style='margin-left:20px;'>
+                <b><span> 1LT</span></b>
+              </div>
+            </div>
+            <div class='conNomInsumo'>
+              <div>
+                <span>2,4 AMINA ASIMAX 80 X 10 KG</span>
+              </div>
+              <div style='margin-left:20px;'>
+                <span> 1LT</span>
+              </div>
+            </div>
+            <div class='conNomInsumo'>
+              <div>
+                <span>2,4 AMINA ASIMAX 80 X 10 KG</span>
+              </div>
+              <div style='margin-left:20px;'>
+                <span> 1LT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id='contComentario'>
+      <div>
+        <img src="img/icomentario.svg" style='width:20px;'>
+      </div>
+      <div class='fgrow2' style='margin-left:10px;'>
+        <span style='color:gray'>Mensaje</span> <br>
+         <input id='txtMensaje' class='form-control' style='width:240px;' type='text' placeholder='Ej: Horario de 10 a 18hs.' maxlength="100">
+      </div>
+    </div>
+  <div class='connumpaso'>
+    <div class='paso phecho'></div>
+    <div class='paso phecho'></div>
+    <div class='paso phecho'></div>
+    <div class='paso phecho'></div>
+    <div class='paso phecho'></div>
+  </div>
+  <div class='conBotnes'>
+      <div class='btnAccion' id='btnVolverAFecha'>
+        <span>ATRAS</span>
+      </div>
+      <div class='btnAccion' id='btnEnviarPedido'>
+        <span >ENVIAR</span>
+      </div>
+  </div>
+</div>
+
+<!-- historial solicitante -->
+<div id='contenedorHistorialSolicitante' class='animated oculto'>
+  <div class='logoMini' style='margin-top:20px;'>
+    <img src="img/logo.jpg" class='nlogomini'> 
+  </div>
+  <div><br>
+    <span class='theader'> Historial de pedidos</span> <br>
+    <img src="img/tildeConfirma.svg" class='icseccionH'> 
+  </div>
+  <div id='conhistsolicitudes'>
+    
+  </div>
+  <div class='conBotnes btnvuelvemenu1'>
+      <div class='btnAccion' >
+        <span>ATRAS</span>
+      </div>
+  </div>
+</div>
+
+<!-- info  pedido -->
+<div id='contenedorHistorialPedidoSolicitante' class='animated oculto'>
+  <div class='logoMini' style='margin-top:20px;'>
+    <img src="img/logo.jpg" class='nlogomini'> 
+  </div>
+  <div><br>
+    <span class='theader'> Informacion del pedido</span> <br>
+    <img src="img/tildeConfirma.svg" class='icseccion'> 
+  </div>
+  <div id='conlugyfech' style='margin-top:10px;'>
+    <div class='clugfech'>
+      <div style='margin-left:20px;'>
+        <img src="img/iubicacion.svg" style='width:20px;'>
+      </div>
+      <div style='margin-left:10px;'>
+        <div>
+          <span style='color:gray'>Lugar</span>
+        </div>
+        <div>
+          <b><span class='tconfirm' id='txtinfodestino'>Gallinao - Morichetti V. Y D.</span></b>
+        </div>
+      </div>
+    </div>
+    <div class='clugfech'>
+      <div style='margin-left:20px;'>
+        <img src="img/iubicacion.svg" style='width:20px;'>
+      </div>
+      <div style='margin-left:10px;'>
+        <div>
+          <span style='color:gray'>Fecha</span>
+        </div>
+        <div>
+          <b><span class='tconfirm' id='txtinfofecha' >04/11/2016</span></b>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id='coninsumconfirmados'>
+      <div id='contituinsumos'>
+        <div>
+          <img src="img/cantidadesinsumos.svg" style='width:20px;'>
+        </div>
+        <div class='fgrow2' style='margin-left:10px;'>
+          <span style='color:gray'>Nombre insumo</span> <br>
+          <div style='color:black' id='conTodosInfoPedido'>
+            <div class='conNomInsumo'>
+              <div>
+                <b><span>2,4 AMINA ASIMAX 80 X 10 KG</span></b>
+              </div>
+              <div style='margin-left:20px;'>
+                <b><span> 1LT</span></b>
+              </div>
+            </div>
+            <div class='conNomInsumo'>
+              <div>
+                <span>2,4 AMINA ASIMAX 80 X 10 KG</span>
+              </div>
+              <div style='margin-left:20px;'>
+                <span> 1LT</span>
+              </div>
+            </div>
+            <div class='conNomInsumo'>
+              <div>
+                <span>2,4 AMINA ASIMAX 80 X 10 KG</span>
+              </div>
+              <div style='margin-left:20px;'>
+                <span> 1LT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id='contComentario'>
+      <div>
+        <img src="img/icomentario.svg" style='width:20px;'>
+      </div>
+      <div class='fgrow2' style='margin-left:10px;'>
+        <span id='txtmensajePedido' style='color:gray'>Observacion</span> <br>
+
+      </div>
+    </div>
+  <div class='conBotnes'>
+      <div class='btnAccion' id='btnVolverAHistorialSolicitante'>
+        <span>ATRAS</span>
+      </div>
+      <div class='btnAccion' id='btnEnviarPedido'>
+        <span >ENVIAR</span>
+      </div>
+  </div>
+</div>
+
+
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="js/tabla.min.js"></script>
+
+    
+    <script type="text/javascript" src="js/moment.min.js"></script>
+    <script type="text/javascript" src='js/bootstrap.min.js'></script>
+    <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+
+
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+
+</html>

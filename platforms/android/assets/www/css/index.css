@@ -1,0 +1,652 @@
+body{
+		background-color: black;
+		color: white;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient:vertical;
+		-webkit-box-direction:normal;
+		    -ms-flex-direction:column;
+		        flex-direction:column;
+		-webkit-box-align:center;
+		    -ms-flex-align:center;
+		        align-items:center;
+		margin-top:10px;
+		/*font-family: 'Roboto', sans-serif;
+		max-height: 500px !important;*/
+		outline:none !important;
+}
+table.dataTable tbody tr{text-align: left !important;}
+body > div.ui-page.ui-body-c.ui-page-active{outline:none !important;}
+body > div.ui-page.ui-body-c.ui-page-active{min-height: 400px !important;}
+#contenedorHeader{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack:center;
+	    -ms-flex-pack:center;
+	        justify-content:center;
+	margin-bottom: 10px;
+	-webkit-box-align:center;
+	    -ms-flex-align:center;
+	        align-items:center;
+	text-align:center;
+}
+.atras{padding-right:10px !important; padding-left:10px !important;}
+a {text-decoration: none; color:white !important;}
+#btnIngresar{
+	background-color:transparent !important;
+	color:white;
+	font-size: 1em !important;
+}
+.btnRegistrar{
+	font-size: 1em;
+	margin-top: 40px;
+	color: white;
+	border-style:solid;
+	border-color:white;
+	border-width: 2px;
+	padding:10px;
+	width: 150px !important;
+	 
+}
+.btnRVolver{
+	font-size: 1em;
+	margin-top: 40px;
+	color: white;
+	border-style:solid;
+	border-color:white;
+	border-width: 2px;
+	padding:10px;
+	width: 150px !important;
+	padding-right:20px;
+	padding-left:20px;
+	 
+}
+#btnSeleccionarDeposito{margin-left:50px;}
+#divContinuarDepositos{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack:distribute;
+	    justify-content:space-around;
+
+}
+
+.dropdown-toggle{
+	color: gray;
+	background-color: white;
+}
+#contenedorNuevoPedidoSolicitante{width: 93%;margin:auto;}
+#logo{width: 130px;}
+.logo{width: 130px;}
+
+#cargaDatos{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack:distribute;
+	    justify-content:space-around;
+	margin-top: 100px;
+}
+#txtCarga{font-size: 5em; color: gray;}
+#txtCuidate{font-size: 4.3em;}
+.itemTexto{
+	border-style:solid;
+	border-color:gray;
+	 border-width: 2px;
+}
+#tablaNuevoPedido{
+	height: 450px !important;
+}
+#contenedorDatos{
+	margin-top: 30px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack:center;
+	    -ms-flex-pack:center;
+	        justify-content:center;
+}
+#contenedorDatosIndex{
+	margin-top: 30px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient:vertical;
+	-webkit-box-direction:normal;
+	    -ms-flex-direction:column;
+	        flex-direction:column;
+	-webkit-box-align:center;
+	    -ms-flex-align:center;
+	        align-items:center;
+	color: white;
+}
+#contenedorFormulario{
+
+	width:700px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient:vertical;
+	-webkit-box-direction:normal;
+	    -ms-flex-direction:column;
+	        flex-direction:column;
+	-webkit-box-align:center;
+	    -ms-flex-align:center;
+	        align-items:center;
+}
+.descTitulo{
+	color: white;
+	text-align:center;
+	font-size: 2em;
+}
+#rolUsuario{
+	width: 300px;
+	border-style:solid;
+	border-color:white;
+	font-size: 2em;
+	color: gray;
+	background-color: white;
+	text-align:center;
+}
+.txtFormulario{
+	width: 400px;
+	border-style:solid;
+	border-color:white;
+	font-size: 2em;
+	margin-top: 50px;
+	text-align:center;
+	color: white;
+	background-color: transparent;
+}
+select {text-align-last:center; }
+::-webkit-input-placeholder { /* Chrome */
+  color: white;
+}
+.lblForm{
+	color: white;
+	font-size: 2em;
+}
+
+
+.itemForm{
+	font-size: 1.5em;
+
+}
+
+#olvidePassword{
+	color: white;
+	font-size: .7em;
+}
+#contenedorHeader{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack:distribute;
+	    justify-content:space-around;
+	margin-bottom: 30px;
+	-webkit-box-align:center;
+	    -ms-flex-align:center;
+	        align-items:center;
+}
+.dropdown-toggle{
+	color: gray;
+	background-color: white;
+}
+#cargaDatos{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack:distribute;
+	    justify-content:space-around;
+	margin-top: 100px;
+}
+#txtCarga{font-size: 5em; color: gray;}
+#txtCuidate{font-size: 4.3em;}
+.itemTexto{
+	border-style:solid;
+	border-color:gray;
+	 border-width: 2px;
+}
+#contenedorDatos{
+	margin-top: 30px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack:center;
+	    -ms-flex-pack:center;
+	        justify-content:center;
+}
+#contenedorDatosIndex{
+	margin-top: 30px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient:vertical;
+	-webkit-box-direction:normal;
+	    -ms-flex-direction:column;
+	        flex-direction:column;
+	-webkit-box-align:center;
+	    -ms-flex-align:center;
+	        align-items:center;
+	color: white;
+}
+#contenedorFormulario{
+
+	width:700px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient:vertical;
+	-webkit-box-direction:normal;
+	    -ms-flex-direction:column;
+	        flex-direction:column;
+	-webkit-box-align:center;
+	    -ms-flex-align:center;
+	        align-items:center;
+}
+.descTitulo{
+	color: white;
+	text-align:center;
+	font-size: 2em;
+}
+#rolUsuario{
+	width: 300px;
+	border-style:solid;
+	border-color:white;
+	font-size: 2em;
+	color: gray;
+	background-color: white;
+	text-align:center;
+}
+.txtFormulario{
+	width: 400px;
+	border-style:solid;
+	border-color:white;
+	font-size: 2em;
+	margin-top: 50px;
+	text-align:center;
+	color: white;
+	background-color: transparent;
+}
+select {text-align-last:center; }
+::-webkit-input-placeholder { /* Chrome */
+  color: white;
+}
+.lblForm{
+	color: white;
+	font-size: 2em;
+}
+
+
+.itemForm{
+	font-size: 1.5em;
+}
+
+#olvidePassword{
+	color: white;
+	font-size: .7em;
+}
+
+
+#contenedorMenu{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient:vertical;
+	-webkit-box-direction:normal;
+	    -ms-flex-direction:column;
+	        flex-direction:column;
+	-webkit-box-align:center;
+	    -ms-flex-align:center;
+	        align-items:center;
+	text-align:center;
+	color: #777777;
+	background-color: #f7f7f8;
+/*	padding-top: 50px;
+	padding-bottom:10px;*/
+	
+}
+.flexTitulos{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient:vertical;
+	-webkit-box-direction:normal;
+	    -ms-flex-direction:column;
+	        flex-direction:column;
+	-webkit-box-align:center;
+	    -ms-flex-align:center;
+	        align-items:center;
+	color: white;
+	margin-bottom: 30px;
+}
+.contenedorInstruccion{
+	text-align: center;
+}
+.instruccion{
+	color: white;
+	font-size: 1.5em;
+}
+.itemMenu{
+	color: white;
+	margin-bottom: 25px;
+	background-color: black;
+}
+.descripcionMenu{
+	color:white;
+	font-size: 1em;
+    font-weight: 200;
+    letter-spacing: normal;
+    line-height: 27px;
+    margin-top:5px;
+}
+.imgMenu{
+	background-color:#EDEDED;
+	border-radius: 50%;
+	width: 40px;
+	padding: 25px;
+	text-decoration: none;
+
+}
+#formNuevoDestino{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient:vertical;
+	-webkit-box-direction:normal;
+	    -ms-flex-direction:column;
+	        flex-direction:column;
+	-webkit-box-align:center;
+	    -ms-flex-align:center;
+	        align-items:center;
+}
+.flex-row{display: -webkit-box;display: -ms-flexbox;display: flex;}
+.flex-jcontent-c{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;}
+.flex-jcontent-sa{-ms-flex-pack:distribute;justify-content:space-around;}
+.oculto{display: none !important;}
+.dataTables_length label{color: white !important;}
+.dataTables_length select{color: gray !important;}
+.sorting{color: white !important;}
+.sorting_asc{color: white !important;}
+.sorting_desc{color: white !important;}
+.dataTables_info{color: white !important;}
+.paginate_button{color: white !important;}
+#tablaDestinos_filter{color: white !important;}
+.sa-button-container{display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;}
+.dataTables_paginate .paginate_button{color: white !important;}
+label > input[type="search"]{color: gray !important; max-width:80%;margin:auto;}
+tbody:hover{mouse:pointer;}
+.contenedorBtnContinuar{
+	display:-webkit-box !important;
+	display:-ms-flexbox !important;
+	display:flex !important;
+	-ms-flex-pack:distribute;
+	    justify-content:space-around;
+	margin-top:30px;
+}
+.dataTables_wrapper .dataTables_filter input{
+	max-width: 350px; font-size: 1.3em;
+}
+.alinearIzq{text-align: left !important;}
+#tablaCantidades_info{display: none !important;}
+#bodyTablaInsumosNuevoPedido{vertical-align: top;}
+.dataTables_filter{color: white !important;}
+.cantidadInsumos{color: black;
+    max-width: 150px;
+    height: 10px !important;
+    text-overflow: ellipsis;
+}
+
+.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody th, .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody td{
+	vertical-align: top !important;
+}
+.itemDeposito{color: black;}
+.inputNumero{
+	width: 60px;
+	text-align: center;
+}
+#contenedorTabla{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient:vertical;
+	-webkit-box-direction:normal;
+	    -ms-flex-direction:column;
+	        flex-direction:column;
+	width: 100%;
+}
+.destinoSeleccionado{background-color: gray !important; color:white !important;}
+.oculto{display: none;}
+#contenedorConfirmarPedido{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	color: white;
+	text-align: left;
+	-webkit-box-orient:vertical;
+	-webkit-box-direction:normal;
+	    -ms-flex-direction:column;
+	        flex-direction:column;
+	-webkit-box-align:left;
+	    -ms-flex-align:left;
+	        align-items:left;
+/*	border-style:solid;
+	border-color:white;*/
+	padding-bottom: 50px;
+}
+
+
+#contenedorSeleccionDestinos{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	color: white;
+	text-align: left;
+	-webkit-box-orient:vertical;
+	-webkit-box-direction:normal;
+	    -ms-flex-direction:column;
+	        flex-direction:column;
+}
+#contenedorFecha{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient:vertical;
+	-webkit-box-direction:normal;
+	    -ms-flex-direction:column;
+	        flex-direction:column;	
+	-webkit-box-align:center;	
+	    -ms-flex-align:center;	
+	        align-items:center;
+}
+#fechaEntregaSolicitada{
+	text-align: center;
+	width: 400px;
+}
+#contenedorCriticidad{
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+	-webkit-box-orient:vertical;
+	-webkit-box-direction:normal;
+	    -ms-flex-direction:column;
+	        flex-direction:column;	
+	-webkit-box-align:center;	
+	    -ms-flex-align:center;	
+	        align-items:center;
+}
+#criticidad{
+		text-align: center;
+	width: 400px;
+	font-size: 1.5em;
+}
+#divContinuarDestinos{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	margin-top: 30px;
+	-webkit-box-pack:center;
+	    -ms-flex-pack:center;
+	        justify-content:center;
+}
+#divEnviarSolicitud{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	margin-top: 30px;
+	-webkit-box-pack:center;
+	    -ms-flex-pack:center;
+	        justify-content:center;
+}
+#modalBody{
+	background-color: #3d73dc !important;
+	color: white !important;
+	font-size: 1.5em;
+	padding-left: 20px;
+	padding-right: 30px;
+}
+#cargandoInfo{
+	width: 100%;
+	text-align: center;
+	color: white;
+	background-color: black;
+}
+#divModificarPedido{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient:vertical;
+	-webkit-box-direction:normal;
+	    -ms-flex-direction:column;
+	        flex-direction:column;
+	-webkit-box-align:center;
+	    -ms-flex-align:center;
+	        align-items:center;
+}
+.optResolutor{
+	width: 300px;
+	color: gray;
+	text-align: center;
+}
+.inputCantidad{
+	width: 200px;
+	color: gray !important;
+	text-align: center;
+}
+#contenedorBtnEditar{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.btnEditar{
+	border-style:solid;
+	border-color: white;
+	margin-top: 30px;
+	padding: 10px;
+}
+#contenedorConfirmarPedido{font-size: 1.3em;}
+#contenedorActualizaPedido{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient:vertical;
+	-webkit-box-direction:normal;
+	    -ms-flex-direction:column;
+	        flex-direction:column;
+	color: white;
+	-webkit-box-align:left;
+	    -ms-flex-align:left;
+	        align-items:left;
+	border: 2px solid white;
+	padding-bottom:10px;
+}
+#tablaRemitos{
+	border:2px solid white;
+	width: 100%;
+	text-align: center;
+}
+#tablaRemitos > tbody > tr > th{
+	text-align: center;
+	border: 1px solid white;
+}
+#infoRemitosPedido > tr > td{border: 1px solid white;}
+#notificarEnvios{-webkit-animation-duration: .8s;}
+.volver{
+	margin-right:50px;margin-left: 20px;
+	/*todo hacer btn igual */
+}
+td:hover{cursor:pointer;}
+a:hover{text-decoration: none;color:white;}
+input:hover{cursor:pointer;}
+.inputModal{color: gray;width: 300px;}
+select{color: black !important;}
+.btnEditar:hover{cursor:pointer;}
+/*#btnContinuarPedido{margin-top:5px !important;}*/
+#tablaNuevoPedido_info{display: none !important;}
+
+#listaConfirmaInsumos > tr > td{
+	border-bottom:1px solid white;
+	text-align: left;
+}
+#tablaHistorialPedido > thead > tr > th{border-bottom:1px solid white;}
+#btPhsingular > tr > td{border-bottom:1px solid white;}
+.aliDer{text-align: right !important;}
+.inputMensaje{
+	width: 300px;
+	font-size: 1.2em;
+}
+.btnCerrarModal{
+	color: white;
+	font-size: .8em !important;
+	border:2px solid;
+	margin-left:20px;
+	padding:1px;
+}
+.btnAccionModal{
+	font-size: 1.2em;
+	border:2px solid;
+	padding: 10px;
+	cursor:pointer;
+	color: white;
+}
+#contenedorTablaInsumosNuevoPedido{
+	/*background-color: red;*/
+	margin:0px !important;
+	padding: 0px !important;
+}
+#contenedorConfirmarDeposito{
+	color: white;
+	font-size: 1.5em;
+	text-align: left;
+	border: 2px solid;
+	padding:20px;
+}
+#contenedorAccionDeposito{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	font-size: 1em;
+
+	margin-top:20px;
+}
+#contenedorHistorialSolicitante{
+	width: 100%;
+	  -moz-transform: scale(0.8, 0.8); /* Moz-browsers */
+    zoom: 0.8; /* Other non-webkit browsers */
+    zoom: 80%; /* Webkit browsers */
+
+}
+
+.mostrarS{
+	/*background-color: blue !important;*/
+	
+}
+.mostrarN{
+	color: red !important;
+}
