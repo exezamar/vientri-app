@@ -121,7 +121,7 @@ $(document).ready( function() {
       $('#btnIngresar').click(function() {
           var email = $('#txtEmailLogin').val(); 
           var password = $('#txtPasswordLogin').val(); 
-           email = 'empresa@viamonte.com';
+           email = 'vendedor@vientri.com';
            password = 'masterkey';
            if (email == '' || password == '' )
             {
@@ -154,10 +154,34 @@ $(document).ready( function() {
                           window.localStorage.setItem("nombre", respuesta.nombre);
                           $("#tnusuario").text(nombre);
                            ocultarSlide('contenedorLogin');
-                           setTimeout(function () {
-                             mostrarSlide('contenedorMenuSolicitante');
-                             $('.nsolicitante').text(nombre);
-                          }, 500);
+                           switch (role)
+                           {
+                                    case 'Cliente':
+                                          ocultarSlide('contenedorLogin');
+                                          setTimeout(function () {
+                                            mostrarSlide('contenedorMenuSolicitante');
+                                         }, 500);
+                                         break;
+                                    case 'Vendedor':
+                                          ocultarSlide('contenedorLogin');
+                                          setTimeout(function () {
+                                            mostrarSlide('contenedorMenuVendedor');
+                                         }, 500);
+                                      break;
+                                      case 'Empresa':
+                                        alert('Perfil Empresa proximamente');
+                                         //  ocultarSlide('contenedorLogin');
+                                         //  setTimeout(function () {
+                                         //    mostrarSlide('contenedorMenuAdministrador');
+                                         // }, 500);
+                                      break;
+                                    default: alert('usuario sin rol identificado');
+                                      break;
+                                  };    
+                          //  setTimeout(function () {
+                          //    mostrarSlide('contenedorMenuSolicitante');
+                          //    $('.nsolicitante').text(nombre);
+                          // }, 500);
                           
                   },//fin success
                   error: function (error) {
@@ -231,6 +255,47 @@ $(document).ready( function() {
       $("#btnVolverAMenu").click(function(){
         location.reload();
       });
+      $('#btnNuevoPedidoVendedor').click(function () {
+        swal({
+            title: "Buscando información", 
+            text: "Por favor espere.", 
+            showCancelButton: false,
+            showConfirmButton: false
+        });
+        token = window.localStorage.getItem("token");
+        $.ajax({
+                url:'http://vientri.infovalue.com.ar/app/listarEmpresas',
+                  type: 'POST',
+                  beforeSend: function (xhr) {
+                      xhr.setRequestHeader ("Authorization", "Bearer"+token);
+                  },
+                  data: {token: token},
+                  success: function(respuesta) {
+                          swal.close();
+                          console.log(respuesta);
+                          //respuesta = JSON.parse(respuesta);
+                          alert(respuesta[empresas][i].idEmpresa);
+                          for (var i = 0; i < respuesta.length; i++)
+                          {
+                            console.log('empresa'+respuesta[i]['idEmpresa']);
+                            var nombre = respuesta[i][0].idEmpresa;
+                            var idEmpresa = respuesta[I][0].id;
+                            $('#contTodosEmpresas').append("<div class='cinsumo' estado='no_apretado' nombre='"+nombre+" idEmpresa="+idEmpresa+" ><div><img class='iestado' src='img/psinseleccionar.svg'></div><div class='coninfoinsumo'><span class='nominsum'>"+nombre+"</span><br></div><div class='banda BLANCA'></div></div>");
+                           
+                          };
+                          //agregar los insumos al listado
+                          
+                          ocultarSlide('contenedorMenuVendedor');
+                          setTimeout(function () {
+                              mostrarSlide('contenedorNuevoPedidoVendedor');
+                              // $(".nombreUsuario").text(nombreUsuario);
+                          }, 500);
+                  },//fin success
+                  error: function (error) {
+                   swal('Problemas',error,'error');
+                  }
+          });//fin ajax
+        });//fin nuevo pedido solicitante
       var listaPedidos = [];
       //buscador insumos
         $("#inpbsq").click(function(){

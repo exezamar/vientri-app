@@ -32,6 +32,18 @@
   position: absolute;
   bottom:0px; 
 }
+#contenedorMenuVendedor{
+   display: flex;
+  flex-direction:column;
+  height: 100%;
+  align-items:center;
+  width: 100%;
+  overflow-y: scroll;
+  background: url("../img/portada.jpg") no-repeat;
+  background-size: cover;
+  position: absolute;
+  bottom:0px; 
+}
 #contenedorNuevoPedidoSolicitante{
    display: flex;
   flex-direction:column;
