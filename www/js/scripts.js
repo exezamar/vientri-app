@@ -264,7 +264,7 @@ $(document).ready( function() {
         });
         token = window.localStorage.getItem("token");
         $.ajax({
-                url:'http://vientri.infovalue.com.ar/app/listarEmpresas',
+                url:'http://vientri.infovalue.com.ar/app/listarClientesEmpresas',
                   type: 'POST',
                   beforeSend: function (xhr) {
                       xhr.setRequestHeader ("Authorization", "Bearer"+token);
@@ -272,17 +272,19 @@ $(document).ready( function() {
                   data: {token: token},
                   success: function(respuesta) {
                           swal.close();
-                         
-                          respuesta = JSON.parse(respuesta);
+                         console.log(respuesta);
+                         // respuesta = JSON.parse(respuesta);
                           
-                          for (var i = 0; i < respuesta['empresas'].length; i++)
+                          for (var i = 0; i < respuesta.length; i++)
                           {
-                            var nombre = respuesta['empresas'][i]['idEmpresa'];
-                            var idEmpresa = respuesta['empresas'][i]['idEmpresa'];
-                            
+                            // var nombre = respuesta['empresas'][i]['idEmpresa'];
+                            // var idEmpresa = respuesta['empresas'][i]['idEmpresa'];
+                            var nombre = respuesta[i]['name'];
+                            var idEmpresa = respuesta[i]['idEmpresa'];
+                            var idCliente = respuesta[i]['id'];
                             // var nombre = respuesta[i][0].idEmpresa;
                             // var idsEmpresa = respuesta[i][0].id;
-                            $('#contTodosEmpresas').append("<div class='cinsumo' estado='no_apretado' nombre='"+nombre+" idEmpresa="+idEmpresa+" ><div><img class='iestado' src='img/psinseleccionar.svg'></div><div class='coninfoinsumo'><span class='nominsum'>"+nombre+"</span><br></div><div class='banda BLANCA'></div></div>");
+                            $('#contTodosEmpresas').append("<div class='ccliente ' estado='no_apretado' nombre='"+nombre+"' idCliente="+idCliente+" ><div><img class='iestado' src='img/psinseleccionar.svg'></div><div class='coninfocliente'><span class='nominsum'>"+nombre+"</span><br></div></div></div>");
                            
                           };
                           //agregar los insumos al listado
@@ -299,6 +301,93 @@ $(document).ready( function() {
           });//fin ajax
         });//fin nuevo pedido solicitante
       var listaPedidos = [];
+      //buscador clientes
+        $("#inpbsqClientes").click(function(){
+          $(this).val('');
+          $(".cinsumo").removeClass('oculto');
+        });
+        $("#inpbsqClientes" ).keyup(function() {
+              var valor = $( "#inpbsq" ).val().toUpperCase();
+              // if (valor == ''){$(".cinsumo").removeClass('oculto');};
+              $(".cinsumo").removeClass('oculto');
+              $('.cinsumo:not(:contains('+valor+'))').addClass('oculto');
+              $(".cinsumo[control*='"+valor+"']").removeClass('oculto');
+              $(".cinsumo[pactivo*='"+valor+"']").removeClass('oculto');
+              $(".cinsumo[nombre*='"+valor+"]'").removeClass('oculto');
+          });
+
+      //selecciona cliente
+      $(document).on('click','.ccliente', function() {  
+        var idCliente = $(this).attr('idCliente');
+        swal({
+            title: "Buscando información", 
+            text: "Por favor espere.", 
+            showCancelButton: false,
+            showConfirmButton: false
+        });
+        token = window.localStorage.getItem("token");
+        $.ajax({
+                url:'http://vientri.infovalue.com.ar/app/listarProductosClientes',
+                  type: 'POST',
+                  beforeSend: function (xhr) {
+                      xhr.setRequestHeader ("Authorization", "Bearer"+token);
+                  },
+                  data: {token,idCliente},
+                  success: function(respuesta) {
+                          swal.close();
+                          // respuesta = JSON.parse(respuesta);
+                          console.log(respuesta);
+                          for (var i = 0; i < respuesta.length; i++)
+                          {
+                            var nombre = respuesta[i].DES;
+                            
+                            var idInsumo = respuesta[i].ID;
+
+                            var um = 'unidades';
+
+                            var pactivo = '';
+                            if (pactivo=='') {pactivo= null};
+                            var control = '';
+                             if (control=='') {control= null};
+                            var banda = 'BLANCA';
+                            var stock = respuesta[i].STK;
+                            if (stock == '0'){
+                             $('#contTodosInsumos').append("<div class='cinsumo' estado='no_apretado' um='"+um+"' idInsumo='"+idInsumo+"' control='"+control+"' pactivo='"+pactivo+"' disponibilidad="+stock+"><div><img class='iestado' src='img/psinseleccionar.svg'></div><div class='coninfoinsumo'><span class='nominsum'>"+nombre+"</span><br><span class='stock sinStock'>Sin stock</span></div><div class='banda "+banda+"'></div></div>");
+                            }
+                            else{
+                             $('#contTodosInsumos').append("<div class='cinsumo' estado='no_apretado' nombre='"+nombre+"' um="+um+" idInsumo="+idInsumo+" control='"+control+"' pactivo='"+pactivo+"' disponibilidad="+stock+"><div><img class='iestado' src='img/psinseleccionar.svg'></div><div class='coninfoinsumo'><span class='nominsum'>"+nombre+"</span><br><span class='stock'>Stock:"+stock+" unidades.</span></div><div class='banda "+banda+"'></div></div>");
+                            }
+                          };
+                          //agregar los insumos al listado
+                          $('#bodyDestinos').empty();
+                          // for (var i = 0; i < respuesta.destinos.length; i++)
+                          // {
+                          //    var idDestino = respuesta.destinos[i].id;
+                          //    var ubicacion = respuesta.destinos[i].ubicacion;
+                          //    var denominacion = respuesta.destinos[i].denominacion;
+                          //   $('#bodyDestinos').append("<div class='cdestino' estado='no_apretado'  idDestino="+idDestino+" ubicacion="+ubicacion+" denominacion="+denominacion+"><div><img class='iestado' src='img/psinseleccionar.svg'></div><div style='margin-left:10px;margin-right:20px;width:30%;'><span class='nominsum'>"+denominacion+"</span></div><div class='coninfodestino'><span style='color:black;'>"+ubicacion+"</span></div></div>");
+                          // };
+                          ocultarSlide('contenedorMenuSolicitante');
+                          ocultarSlide('contenedorNuevoPedidoVendedor');
+
+                          setTimeout(function () {
+                              mostrarSlide('contenedorNuevoPedidoSolicitante');
+                              // $(".nombreUsuario").text(nombreUsuario);
+                          }, 500);
+                  },//fin success
+                  error: function (error) {
+                   swal('Problemas',error,'error');
+                  }
+          });//fin ajax
+
+
+
+
+      });
+
+      $("#btnIrAProductos").click(function(){
+
+      });
       //buscador insumos
         $("#inpbsq").click(function(){
           $(this).val('');
@@ -340,7 +429,7 @@ $(document).ready( function() {
           }//fin else stock
         });//fin cinsumo
         
-        $("#btnIrACantidades").click(function(){
+        $(".btnIrACantidades").click(function(){
             $('#bodyCantidades').empty();
             if (listaPedidos.length == 0)
               {

@@ -185,6 +185,14 @@ width: 200px;
     position: relative;
 
 }
+.ccliente{
+  display: flex;
+  justify-content:center;
+  padding:10px;
+    border-bottom:1px solid #dadada;
+    position: relative;
+
+}
 .iestadodestino{ width: 30px;margin-top:3px;}
 .cdestino{
     display: flex;
@@ -196,6 +204,12 @@ width: 200px;
 .nominsum{font-size: 1.1em; color: black}
 .stock{font-size: .8em;color: gray;}
 .coninfoinsumo{
+  flex-grow:2;
+  margin-right: 10px;
+  margin-left:10px;
+
+}
+.coninfocliente{
   flex-grow:2;
   margin-right: 10px;
   margin-left:10px;
