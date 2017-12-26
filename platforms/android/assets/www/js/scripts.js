@@ -272,14 +272,16 @@ $(document).ready( function() {
                   data: {token: token},
                   success: function(respuesta) {
                           swal.close();
-                          console.log(respuesta);
-                          //respuesta = JSON.parse(respuesta);
-                          alert(respuesta[empresas][i].idEmpresa);
-                          for (var i = 0; i < respuesta.length; i++)
+                         
+                          respuesta = JSON.parse(respuesta);
+                          
+                          for (var i = 0; i < respuesta['empresas'].length; i++)
                           {
-                            console.log('empresa'+respuesta[i]['idEmpresa']);
-                            var nombre = respuesta[i][0].idEmpresa;
-                            var idEmpresa = respuesta[I][0].id;
+                            var nombre = respuesta['empresas'][i]['idEmpresa'];
+                            var idEmpresa = respuesta['empresas'][i]['idEmpresa'];
+                            
+                            // var nombre = respuesta[i][0].idEmpresa;
+                            // var idsEmpresa = respuesta[i][0].id;
                             $('#contTodosEmpresas').append("<div class='cinsumo' estado='no_apretado' nombre='"+nombre+" idEmpresa="+idEmpresa+" ><div><img class='iestado' src='img/psinseleccionar.svg'></div><div class='coninfoinsumo'><span class='nominsum'>"+nombre+"</span><br></div><div class='banda BLANCA'></div></div>");
                            
                           };
