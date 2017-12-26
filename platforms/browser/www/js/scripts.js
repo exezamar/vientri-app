@@ -20,6 +20,7 @@ $(document).ready( function() {
 
       var token = window.localStorage.getItem("token");
       var tablaCantidades = "";  
+      var idCliente = '';
       var hoy =  moment().format('YYYY-MM-DD'); 
       $('#fechaEntregaSolicitada').val(hoy);
       $(".logo").click(function(){  
@@ -281,7 +282,8 @@ $(document).ready( function() {
                             // var idEmpresa = respuesta['empresas'][i]['idEmpresa'];
                             var nombre = respuesta[i]['name'];
                             var idEmpresa = respuesta[i]['idEmpresa'];
-                            var idCliente = respuesta[i]['id'];
+                            idCliente = respuesta[i]['id'];
+
                             // var nombre = respuesta[i][0].idEmpresa;
                             // var idsEmpresa = respuesta[i][0].id;
                             $('#contTodosEmpresas').append("<div class='ccliente ' estado='no_apretado' nombre='"+nombre+"' idCliente="+idCliente+" ><div><img class='iestado' src='img/psinseleccionar.svg'></div><div class='coninfocliente'><span class='nominsum'>"+nombre+"</span><br></div></div></div>");
@@ -629,6 +631,7 @@ $(document).ready( function() {
                               listaPedidosConfirmado : listaPedidosConfirmado,
                               idDestino : 'sucursal',
                               fechaSolicitada : fechaSolicitada,
+                              idCliente: idCliente
                               mensaje: mensaje
                           },
                           success: function(respuesta) {
