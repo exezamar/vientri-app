@@ -20,7 +20,7 @@ $(document).ready( function() {
 
       var token = window.localStorage.getItem("token");
       var tablaCantidades = "";  
-      var idCliente = '';
+      var idClienteV = '';
       var hoy =  moment().format('YYYY-MM-DD'); 
       $('#fechaEntregaSolicitada').val(hoy);
       $(".logo").click(function(){  
@@ -613,7 +613,7 @@ $(document).ready( function() {
           $("#btnEnviarPedido").click(function(){
 
             var listaPedidosConfirmado = listaNuevosConfirmados;
-            console.log(listaPedidosConfirmado)
+            console.log(listaPedidosConfirmado);
             var mensaje = $("#txtMensaje").val();
             swal({
                    title: "Enviando información", 
@@ -631,7 +631,7 @@ $(document).ready( function() {
                               listaPedidosConfirmado : listaPedidosConfirmado,
                               idDestino : 'sucursal',
                               fechaSolicitada : fechaSolicitada,
-                              idCliente: idCliente
+                              idClienteV: idClienteV,
                               mensaje: mensaje
                           },
                           success: function(respuesta) {
