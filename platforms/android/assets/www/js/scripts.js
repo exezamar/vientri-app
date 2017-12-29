@@ -122,8 +122,8 @@ $(document).ready( function() {
       $('#btnIngresar').click(function() {
           var email = $('#txtEmailLogin').val(); 
           var password = $('#txtPasswordLogin').val(); 
-           email = 'vendedor@vientri.com';
-           password = 'masterkey';
+           email = 'leonardo@vientri.com';
+           password = 'Inicio123';
            if (email == '' || password == '' )
             {
               swal({
